@@ -52,28 +52,23 @@ Insight-Space 的第一步不是直接搜索，而是先像设计搭档一样理
 7. 判断参考价值和风险
 8. 输出 Word 文档、链接文件或视觉卡片
 
-## Installation
-
-> 当前版本是 GitHub 可下载测试版，暂未声明已进入任何官方插件市场。
-
 ### Download From GitHub
+
+建议直接在codex对话框，输入解压后的文件夹路径发给 Codex，让 Codex 帮你确认安装位置，并直接安装。
 
 1. 打开本仓库页面。
 2. 点击右上角 `Code`。
 3. 选择 `Download ZIP`。
 4. 解压后得到完整的 Insight-Space Skill 文件夹。
+5. 把解压出来的 Skill 文件夹放到本机 Codex 的 skills 目录
+6. 重启 Codex 或新开线程
+
 
 ### Manual Install For Codex
 
 如果你的 Codex 支持本地 Skills，可以将整个 Skill 文件夹复制到本机 Codex skills 目录。
 
-Windows 常见位置：
-
-```text
-%USERPROFILE%\.codex\skills\insight-space
-```
-
-也可以使用中文外层文件夹保存，但建议 Skill 本体文件夹使用稳定英文名，例如：
+可以使用中文外层文件夹保存，但建议 Skill 本体文件夹使用稳定英文名，例如：
 
 ```text
 insight-space
@@ -93,8 +88,6 @@ insight-space
 2. 将 Skill 文件夹放入 Codex 可识别的 skills 目录。
 3. 重新打开 Codex 或新建线程。
 4. 用“使用 Insight-Space”开头测试触发。
-
-如果未来进入官方插件市场，可以在这里补充市场安装方式。
 
 ## Output Modes
 
@@ -145,11 +138,15 @@ insight-space
 ## Example Prompts
 
 ```text
-使用 Insight-Space，帮我找几个景观塔类似案例，做深度研究。
+使用 Insight-Space，帮我找几个景观塔类似案例。
 ```
 
 ```text
-使用 Insight-Space，找一点咖啡店商业空间参考，先做中度探索。
+使用 Insight-Space，帮我找几个景观塔类似案例。
+```
+
+```text
+使用 Insight-Space，找一点咖啡店商业空间参考。
 ```
 
 ```text
@@ -195,7 +192,6 @@ insight-space/
 ├─ tests/
 ├─ examples/
 ├─ docs/
-└─ word_review/
 ```
 
 主要内容：
@@ -207,7 +203,6 @@ insight-space/
 - `scripts`：Word 和卡片自动化脚本
 - `tests`：测试提示和验收规则
 - `examples`：自动化脚本示例输入
-- `word_review`：人工审阅用 Word 文档
 
 ## Automation
 
@@ -222,7 +217,7 @@ insight-space/
 
 ## Current Status
 
-当前版本为可发布测试版。
+当前版本为发布测试版。
 
 已经完成：
 
@@ -234,11 +229,8 @@ insight-space/
 - 分层抽样搜索规则
 - 图片下载失败降级规则
 - 前期对话引导规则
-- GitHub 上传前说明文档
 
 ## Updating
-
-后续更新时建议：
 
 - 修改主流程时，更新 `SKILL.md`
 - 修改搜索、来源、评估、输出、卡片等细则时，更新 `references`
@@ -258,4 +250,3 @@ Insight-Space 的价值不在于找到多少张图，而在于它能不能先判
 - 建议仓库名：`insight-space`
 - 说明文档：`Insight-Space V1.0正式版_说明与维护文档.docx`
 - 日期：2026-06-10
-
