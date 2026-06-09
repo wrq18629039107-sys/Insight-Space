@@ -1,0 +1,53 @@
+{
+  "topic": "office-young-test",
+  "user_request": "Find several boutique office cases for deep research, with a younger, personalized character.",
+  "output_dir": "",
+  "projects": [
+    {
+      "no": "NO1",
+      "title": "Sample Young Office",
+      "search_line": "Deep project search: young and personalized office-space references. NO labels are document numbers, not value ranking.",
+      "project_type": "Office space / brand workplace",
+      "designer": "Insight-Space Test",
+      "location_year": "Test location / 2026",
+      "url": "https://example.com/sample-young-office",
+      "image_path": "assets/templates/project_card_template.jpg",
+      "core_judgment": [
+        "This sample project is used to verify the deep-mode Word renderer, not to judge a real design case. Its value is that it tests whether the approved template can be filled without changing the layout.",
+        "From an automation perspective, it checks the most important deep-mode positions: project image, project information table, core judgment, reference tables, risk bullets, and expanded conclusion.",
+        "Therefore, it is suitable as the first renderer test case. The script should keep the template order, preserve the project image slot, and avoid inventing a new report structure."
+      ],
+      "reference_points": [
+        ["Fixed template", "Prevents the renderer from creating a free-layout report.", "Copy the approved project block and only replace content."],
+        ["Representative image", "Avoids using web-page screenshots as project images.", "Require a local image path before rendering."],
+        ["Expanded conclusion", "Deep mode needs readable judgment, not one-line comments.", "Use three conclusion paragraphs for each project."]
+      ],
+      "direction_suggestions": [
+        ["Form / space", "Keep the original direction row and replace only the content.", "Do not add unrelated columns."],
+        ["Material", "Keep the material direction row from the template.", "Use concise, project-related text."],
+        ["Function", "Connect the suggestion to workplace needs.", "Avoid writing it like a visual card."],
+        ["Operation", "Include maintenance and use reminders.", "Keep the language readable."]
+      ],
+      "do_not_copy": [
+        ["Do not redesign the template", "The template has already been approved by the user.", "Replace placeholders only."],
+        ["Do not change image type", "The project image must be a representative project image.", "The sample image is only for script verification."],
+        ["Do not compress table text", "Hidden text damages readability.", "Allow table rows to expand when needed."]
+      ],
+      "cost_judgment": [
+        ["Cost", "1/3", "The test case has no real cost data.", "Judge real cases from available source material."],
+        ["Construction", "1/3", "The test case has no real construction data.", "Judge real cases from materials and visible details."],
+        ["Maintenance", "1/3", "The test case has no real maintenance data.", "Judge real cases from usage intensity."]
+      ],
+      "risks": [
+        "If required input fields are missing, the renderer should fail instead of generating an incomplete document.",
+        "If the image path is invalid, the renderer should fail instead of using a web screenshot as a replacement.",
+        "If the template cannot be opened, the renderer should fail instead of inventing a new structure."
+      ],
+      "conclusion": [
+        "Sample Young Office is a useful automation test case because it verifies the rendering process rather than presenting a real design recommendation. Its purpose is to confirm that the deep-mode template can be filled consistently, including tables, image position, risk notes, and conclusion structure.",
+        "For the current Insight-Space workflow, this helps separate research judgment from document production. The agent can spend its thinking budget on selecting and evaluating projects, while this script handles repeated Word formatting work after the content is prepared.",
+        "In real use, this sample data should be replaced by verified project sources, accurate representative images, and user-specific design analysis. The final document should remain visually consistent with the approved deep-mode template while carrying project-specific judgment."
+      ]
+    }
+  ]
+}

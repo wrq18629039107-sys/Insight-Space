@@ -1,0 +1,31 @@
+{
+  "topic": "retail-shallow-test",
+  "user_request": "Shallow mode: test two shop references.",
+  "output_dir": "",
+  "projects": [
+    {
+      "no": "NO1",
+      "title": "Sample Shallow Shop One",
+      "project_type": "Retail shop / shallow test",
+      "designer": "Insight-Space Test",
+      "location_year": "Test location / 2026",
+      "feature": "One-page shallow reference with a compact project image.",
+      "value": "Useful for checking that one project stays on one page.",
+      "warning": "Do not create extra image folders in delivery.",
+      "url": "https://example.com/sample-shallow-shop-one",
+      "image_path": "assets/templates/project_card_template.jpg"
+    },
+    {
+      "no": "NO2",
+      "title": "Sample Shallow Shop Two",
+      "project_type": "Pop-up shop / shallow test",
+      "designer": "Insight-Space Test",
+      "location_year": "Test location / 2026",
+      "feature": "Second shallow block for page-break verification.",
+      "value": "Useful for checking repeated shallow template blocks.",
+      "warning": "Keep the Word report and link file only.",
+      "url": "https://example.com/sample-shallow-shop-two",
+      "image_path": "assets/templates/project_card_template.jpg"
+    }
+  ]
+}

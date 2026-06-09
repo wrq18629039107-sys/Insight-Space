@@ -1,0 +1,7 @@
+interface:
+  display_name: "像你一样看空间"
+  short_description: "空间、景观、室内前期案例研究与参考价值判断"
+  default_prompt: "Use $insight-space to find verified spatial design references, judge their value, choose the right output mode, and produce research documents, card visuals, or source-link lists."
+
+policy:
+  allow_implicit_invocation: true

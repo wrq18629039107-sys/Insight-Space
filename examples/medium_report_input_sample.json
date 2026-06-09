@@ -1,0 +1,42 @@
+{
+  "topic": "retail-medium-test",
+  "user_request": "Medium mode: test three shop references.",
+  "output_dir": "",
+  "projects": [
+    {
+      "no": "NO1",
+      "title": "Sample Medium Shop",
+      "search_line": "Medium project search: retail shop references. NO labels are document numbers, not value ranking.",
+      "project_type": "Retail shop / medium test",
+      "designer": "Insight-Space Test",
+      "location_year": "Test location / 2026",
+      "url": "https://example.com/sample-medium-shop",
+      "image_path": "assets/templates/project_card_template.jpg",
+      "core_judgment": [
+        "This medium sample verifies the reduced project-search template.",
+        "It keeps image, information, core judgment, reference tables, risk notes, and conclusion.",
+        "It must not restore the removed deep sections."
+      ],
+      "reference_points": [
+        ["Reduced template", "Keeps judgment while lowering report weight.", "Use the medium template block only."],
+        ["Correct numbering", "Risk and conclusion become sections 4 and 5.", "Reject old 6 and 7 numbering."],
+        ["Embedded image", "The report should not output image folders.", "Embed the chosen image into Word."]
+      ],
+      "direction_suggestions": [
+        ["Space", "Use a clear entrance and display rhythm.", "Avoid blocking circulation."],
+        ["Material", "Keep a simple and durable background.", "Match budget and maintenance."],
+        ["Display", "Create one strong retail focus.", "Avoid too many equal highlights."],
+        ["Operation", "Allow quick product updates.", "Keep storage and staff workflow usable."]
+      ],
+      "risks": [
+        "Do not copy a flagship scale into a small shop.",
+        "Keep visual identity balanced with everyday operation."
+      ],
+      "conclusion": [
+        "Sample Medium Shop is useful for verifying the medium renderer.",
+        "The result should read like a reduced deep report, not a card.",
+        "A real report should replace this sample data with verified cases and accurate images."
+      ]
+    }
+  ]
+}
