@@ -48,6 +48,16 @@ function RequiredArray($object, [string]$name, [int]$minCount) {
   return ,$items
 }
 
+function RequiredTextLength($object, [string]$name, [int]$minCount, [int]$minChars) {
+  $items = RequiredArray $object $name $minCount
+  $joined = (($items | ForEach-Object { [string]$_ }) -join "")
+  $joined = CleanText $joined
+  if ($joined.Length -lt $minChars) {
+    throw "Medium field '$name' is too short for formal medium-mode analysis. Minimum characters: $minChars; actual: $($joined.Length)."
+  }
+  return ,$items
+}
+
 function CleanText($text) {
   return (($text -replace "[`r`a]+", " ").Trim())
 }
@@ -128,11 +138,11 @@ function ValidateProject($project) {
   [void](Required $project "location_year")
   [void](Required $project "url")
   [void](Required $project "image_path")
-  [void](RequiredArray $project "core_judgment" 3)
+  [void](RequiredTextLength $project "core_judgment" 3 240)
   [void](RequiredArray $project "reference_points" 3)
   [void](RequiredArray $project "direction_suggestions" 4)
   [void](RequiredArray $project "risks" 2)
-  [void](RequiredArray $project "conclusion" 3)
+  [void](RequiredTextLength $project "conclusion" 3 180)
 }
 
 function FillRows3($table, $rows, [int]$count, [string]$fieldName) {

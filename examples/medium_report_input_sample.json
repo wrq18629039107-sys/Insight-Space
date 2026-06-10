@@ -13,9 +13,9 @@
       "url": "https://example.com/sample-medium-shop",
       "image_path": "assets/templates/project_card_template.jpg",
       "core_judgment": [
-        "This medium sample verifies the reduced project-search template.",
-        "It keeps image, information, core judgment, reference tables, risk notes, and conclusion.",
-        "It must not restore the removed deep sections."
+        "This medium sample verifies that the reduced project-search template still reads like a formal research note rather than a short visual card. The project value should be explained through transferable design logic, not only through a quick label or a single attractive feature.",
+        "For a real medium-mode report, the core judgment must tell the reader why this case matters, which spatial mechanism is doing the work, and where the same method could be used in the user's current project. It should keep enough analytical density for a designer or client to understand the decision.",
+        "The medium renderer therefore keeps the deep-report reading rhythm while removing only two heavy sections. It must not collapse the most important design judgment into three short captions."
       ],
       "reference_points": [
         ["Reduced template", "Keeps judgment while lowering report weight.", "Use the medium template block only."],
@@ -33,9 +33,9 @@
         "Keep visual identity balanced with everyday operation."
       ],
       "conclusion": [
-        "Sample Medium Shop is useful for verifying the medium renderer.",
-        "The result should read like a reduced deep report, not a card.",
-        "A real report should replace this sample data with verified cases and accurate images."
+        "Sample Medium Shop is useful for verifying that medium mode remains a reduced deep report. The conclusion should name the case's role, summarize the most useful strategies, and make a clear recommendation for how the user should borrow the method.",
+        "In real output, this section should help the reader decide whether the project is worth keeping in the reference set, whether it should be downgraded, or whether it needs deeper tracing before being used in a client-facing document.",
+        "A real report should replace this sample data with verified cases, accurate images, and project-specific judgment while keeping the same analytical weight."
       ]
     }
   ]

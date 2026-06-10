@@ -11,10 +11,11 @@ Insight-Space v0.1 is acceptable when it consistently meets these checks.
 ## Interaction
 
 - It does not ask a long questionnaire first.
-- It starts when project type, use scenario, and core goal are clear enough.
-- It uses assumptions when the user wants speed.
-- It asks at most the necessary key questions.
-- When the user gives a loose one-condition request such as "随便搜几个看看", it recommends or infers the lightest suitable mode before heavy research.
+- It never starts online search, source opening, image download, Word generation, or card generation before a short user confirmation.
+- Its first response to every new Insight-Space task restates the user's need, recommends or confirms mode, proposes quantity, states screening priorities, states output format/location, and asks the user to confirm.
+- It uses assumptions when the user wants speed, but still asks for one-word confirmation before research starts.
+- It asks at most the necessary key questions inside the confirmation block.
+- When the user gives a loose one-condition request such as "随便搜几个看看", it recommends or infers the lightest suitable mode before heavy research and waits for confirmation.
 - It defaults loose project/case exploration to shallow mode, and loose picture/mood/object requests to visual search mode.
 - Its first response feels like a design partner: it reflects the user's real design problem before naming the mode.
 - It suggests a first-round calibration size by default: 3 deep cases, 4 medium cases, 5 shallow directions/items, or 3-4 visual cards.
@@ -101,4 +102,5 @@ The skill fails if it:
 - recommends every case equally;
 - omits non-copy points;
 - omits risk when risk is central;
+- begins search or file generation before the user confirms the proposed mode, quantity, direction, and output;
 - produces the wrong output mode for the user request.

@@ -5,13 +5,13 @@ Use these prompts after editing the skill. The goal is to check behavior, not to
 ## Trigger And Clarification
 
 1. `我想找一些异形构筑物参考。`
-   - Expected: asks only minimal questions or states assumptions; does not blindly list images.
+   - Expected: recommends likely mode and first-round quantity, states assumptions, and asks for confirmation before any search; does not blindly list images.
 
 2. `商业街区入口想做一个打卡和导视装置，帮我找参考。`
-   - Expected: triggers project research; generates Chinese/English keywords; searches verified cases and visual clues separately.
+   - Expected: triggers Insight-Space, recommends medium mode and first-round quantity, names screening priorities, and asks for confirmation before generating keywords or searching.
 
 3. `不要问了，先快速找。`
-   - Expected: enters shallow or quick mode with assumptions; does not keep asking.
+   - Expected: proposes shallow mode with assumptions and asks for one-word confirmation before searching; does not keep asking a long questionnaire.
 
 4. `咖啡厅怎么设计会比较舒服？`
    - Expected: weak trigger; gives concise design advice and offers/infers case research only if needed.
@@ -24,19 +24,19 @@ Use these prompts after editing the skill. The goal is to check behavior, not to
 Use these prompts to test only the early dialogue and mode guidance. Do not run real web search for this section.
 
 22. `先帮我随便搜几个咖啡店看看。`
-    - Expected: infers shallow project search; explains that this is a quick direction check; does not jump into deep mode; asks no more than one question.
+    - Expected: infers shallow project search; explains that this is a quick direction check; proposes first-round quantity and output location; waits for confirmation before web search.
 
 23. `找一点面包店视觉参考。`
-    - Expected: infers visual search mode; says cards are for visual direction, not full verified project reports; does not ask a long questionnaire.
+    - Expected: infers visual search mode; says cards are for visual direction, not full verified project reports; proposes card quantity and waits for confirmation.
 
 24. `帮我找几个办公空间精品案例，做深度研究。`
-    - Expected: infers deep mode; says it will prioritize real cases, source verification, and template-based report output.
+    - Expected: infers deep mode; says it will prioritize real cases, source verification, and template-based report output; asks user to confirm before searching.
 
 25. `我也不知道要什么，你先给我点灵感。`
-    - Expected: asks one light clarifying question only if project type is unclear; otherwise defaults to shallow exploration with stated assumptions.
+    - Expected: expands the likely direction, proposes shallow exploration with stated assumptions, and asks for confirmation before searching.
 
 26. `我只想先看看图片，不要分析那么多。`
-    - Expected: infers visual search mode; keeps output image/card-led; avoids formal case facts unless verified.
+    - Expected: infers visual search mode; proposes image/card-led output and quantity; avoids formal case facts unless verified; waits for confirmation.
 
 27. `商业街区入口想做一个能打卡、也有导视功能的装置。`
     - Expected: responds like a design partner; identifies that this is not just a shape but a memory point plus guidance problem; recommends medium mode; suggests first-round 4 cases; mentions the default numbered folder under `Insight-Space输出`.
@@ -45,7 +45,7 @@ Use these prompts to test only the early dialogue and mode guidance. Do not run 
     - Expected: treats the three requests as independent tasks unless the user says they belong together; each gets its own mode recommendation, first-round quantity, and output folder.
 
 29. `先找 6 个，不用你建议数量。`
-    - Expected: follows the user-specified quantity and does not insist on the default calibration number.
+    - Expected: follows the user-specified quantity in the confirmation block and does not insist on the default calibration number; still waits for confirmation before searching.
 
 ## Source And Verification
 

@@ -62,13 +62,32 @@ If the user's expected depth is unclear, offer four choices briefly:
 
 ## Conversation And Mode Guidance
 
-When the user gives only a loose request such as "先随便搜几个看看", "帮我找点灵感", "先看看方向", or "找一点 [project type] 参考", do not jump into deep research by default.
+### Mandatory Pre-Search Confirmation
 
-Default to **Project Search - Shallow Mode** when the request is a project/case request but the user has not asked for deep judgment. Say the inferred mode in one short sentence, then continue if the project type and goal are clear enough:
+Before any online search, source opening, image download, Word generation, or card generation, always perform a short confirmation step with the user. This is mandatory for every new Insight-Space task, even when the user appears to have already named a mode, topic, and quantity.
+
+The first response to a new research request must only clarify the intended work and ask for confirmation. Do not start researching in the same turn. The user must reply with an explicit confirmation such as "确认", "可以", "开始", "就按这个来", or an equivalent approval before the workflow continues.
+
+Use this confirmation structure:
+
+1. restate the user's design problem in natural language;
+2. recommend or confirm the mode: 深度模式, 中度模式, 浅度模式, or 视觉搜索模式;
+3. name the proposed first-round quantity;
+4. state the screening priorities and any assumptions;
+5. state the expected output format and default output folder;
+6. ask the user to confirm or revise.
+
+For vague requests, expand the direction instead of asking a long questionnaire. For example, if the user says "帮我找商业空间案例", infer a practical starting scope such as cafe/retail/community commercial/brand pop-up/commercial street interface, recommend a mode and first-round quantity, then ask the user to confirm. If the user wants a different commercial subtype, style, budget, or output count, they can revise before research starts.
+
+If multiple unrelated requests appear in one message, treat each as an independent task and ask the user which one to run first, or propose separate confirmation blocks. Do not combine them into one search unless the user confirms they belong to the same project.
+
+When the user gives only a loose request such as "先随便搜几个看看", "帮我找点灵感", "先看看方向", or "找一点 [project type] 参考", do not jump into deep research or online search by default.
+
+Default to **Project Search - Shallow Mode** when the request is a project/case request but the user has not asked for deep judgment. Say the inferred mode in one short sentence, propose the first-round quantity and direction, then ask for confirmation:
 
 > 我判断这次更适合先用“浅度探索模式”，快速找几个方向看看；如果你想要更完整分析，可以改成中度或深度。
 
-Default to **Visual Search Mode** when the request is mainly about pictures, visual mood, object form, material feeling, small structures, furniture, lighting, or other visual clues:
+Default to **Visual Search Mode** when the request is mainly about pictures, visual mood, object form, material feeling, small structures, furniture, lighting, or other visual clues. Say the inferred mode, proposed card quantity, and source assumptions, then ask for confirmation:
 
 > 我判断这次更适合“视觉搜索模式”，先用卡片给你看方向，不把它当成已核验项目报告。
 
@@ -80,6 +99,10 @@ Use these intent cues:
 - “图片参考 / 视觉感觉 / 造型 / 材质 / 小构筑物 / 座椅 / 灯具 / 只看卡片” -> Visual Search Mode.
 
 If a user asks "你建议用哪种模式", recommend the lightest mode that can answer the request. Escalate only when the user explicitly needs client-facing depth, full comparison, or formal source verification.
+
+Example first response to a vague request:
+
+> 我理解你想先找一批商业空间参考，但“商业空间”范围很大。我建议第一轮先用中度模式，找 4 个方向校准案例，优先看咖啡/零售/社区商业/品牌快闪里具有空间记忆点、可落地、适合继续深化的项目。输出放到桌面 `Insight-Space输出`。你确认后我再开始联网搜索；也可以直接改成浅度、深度或视觉卡片模式。
 
 ### First-Round Calibration
 
@@ -147,6 +170,7 @@ Default output combination:
 - one `链接.txt` source-link list.
 
 Medium documents keep the same visual format as the approved deep template, but deliberately remove section `4. 不能照搬点` and section `5. 成本 / 施工 / 维护初判 (1-3)`. After renumbering, keep the project image, project information, `1.核心判断`, `2.最值得参考`, `3.借鉴方向建议`, `4.风险提醒`, and `5.结论`.
+Medium mode is a reduced deep report, not a summary card. Removing two sections must not make the analysis thin. For every medium project, `1.核心判断` must be written as 2-3 substantial paragraphs that explain the project's real transferable value, spatial/design mechanism, suitable use scenarios, and what should be extracted instead of copied. `5.结论` must be written as 2 substantial paragraphs that restate the project role, name the most useful strategies, and give a clear recommendation for how the current user should borrow it. Do not output one-sentence or bullet-only conclusions in medium mode.
 Do not add a Word cover page or opening explanation page. The Word report should start directly with `NO1. [Project Name]`; keep user request, mode notes, and NO-number explanation in `链接.txt` when needed.
 Default: do not output card visuals. Card visuals are candidate references, meaning almost-selected backup projects or supplementary visual clues. Output them only if the user asks for candidate cards, backup references, or visual cards.
 
@@ -183,35 +207,41 @@ Never package visual-only clues as verified projects.
 
 Do not start by asking a long questionnaire.
 
-Minimum information to start project research:
+Do start every new Insight-Space task with a short confirmation block. This rule overrides any earlier instruction to "continue if clear enough" or "ask none". The confirmation block is not a questionnaire; it is a concise read-back of the intended mode, quantity, search direction, output type, and output location.
+
+Minimum information to confirm before project research:
 
 - project type;
 - use scenario;
 - core goal.
+- output mode;
+- first-round quantity;
+- output format and location.
 
-If these are mostly clear, start with assumptions. Missing budget, area, city, climate, style, or exact construction constraints should not block research. Mark assumptions clearly.
+If these are mostly clear, state assumptions in the confirmation block and wait for user approval. Missing budget, area, city, climate, style, or exact construction constraints should not block the confirmation step. Mark assumptions clearly and let the user correct them before research starts.
 
 Ask only the smallest useful number of questions:
 
-- quick mode: ask none unless project type or goal is impossible to infer;
-- medium mode: ask at most one key question when needed;
-- deep mode: ask up to three key questions if missing information would change research direction.
+- quick mode: ask for confirmation of the proposed mode, quantity, and direction;
+- medium mode: ask for confirmation and at most one key question when needed;
+- deep mode: ask for confirmation and up to three key questions if missing information would change research direction.
 
-If the user says “不要问了/先快速找/我也没思路”, state assumptions and continue.
+If the user says “不要问了/先快速找/我也没思路”, do not start searching immediately. State assumptions, propose the lightest reasonable mode and first-round quantity, then ask for one-word confirmation. Only continue after the user confirms.
 
 ## Research Workflow
 
 1. Classify the request: spatial, landscape, interior, or adjacent/out of scope.
 2. Decide project research or visual reference.
 3. Choose tone and output mode.
-4. Check minimum start information; ask minimally or state assumptions.
-5. Generate Chinese and English search keywords; add local-language or place keywords when useful.
-6. Search online for real cases or visual references as required.
-7. Build a candidate pool and grade each source.
-8. Separate verified/formal cases from visual clues and pending references.
-9. Select cases by relevance, method value, source reliability, transferability, risk, and difference from other selected cases.
-10. Produce the requested output combination: one template-based research report and `链接.txt`; card visuals only when explicitly requested or when the output mode is visual search.
-11. State search limitations and next-step research directions when results are incomplete.
+4. Prepare a short confirmation block with assumptions, mode, quantity, screening priorities, output format, and output folder.
+5. Wait for explicit user confirmation. Do not browse, open sources, download images, or generate files before this confirmation.
+6. Generate Chinese and English search keywords; add local-language or place keywords when useful.
+7. Search online for real cases or visual references as required.
+8. Build a candidate pool and grade each source.
+9. Separate verified/formal cases from visual clues and pending references.
+10. Select cases by relevance, method value, source reliability, transferability, risk, and difference from other selected cases.
+11. Produce the requested output combination: one template-based research report and `链接.txt`; card visuals only when explicitly requested or when the output mode is visual search.
+12. State search limitations and next-step research directions when results are incomplete.
 
 ## Efficient Search And Token Policy
 
