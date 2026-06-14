@@ -33,36 +33,54 @@ Source level determines how the material can be used. It is not a decorative lab
 1. Confirm minimum start information: project type, use scenario, core goal.
 2. Decide output mode and tone.
 3. Generate Chinese and English search keywords; add local-language or place keywords when useful.
-4. Search broadly for the project type and problem.
-5. Search narrowly for scale, strategy, material, operation, maintenance, or site constraints.
-6. Grade every source as A/B/C/D/X.
+4. Run Fast Quality Search by default: search enough to select good cases, not to exhaust the field.
+5. Search narrowly for scale, strategy, material, operation, maintenance, or site constraints only when the first pass is too generic.
+6. Grade rough sources lightly by source type and relevance; grade final selected sources clearly as A/B/C/D/X.
 7. Remove or downgrade sources that cannot support project facts.
-8. Build a candidate pool.
+8. Build a candidate pool within the default candidate limits.
 9. Separate formal cases, visual clues, pending references, and rejected items.
 10. Produce selected cases and source-link list. Produce card candidates only when the user asks for candidate cards or visual backup references.
 
 ## Layered Sampling Search
 
-For broad searches, do not judge the whole field from only the first search-result page. Also do not browse every page one by one. Use a layered sampling strategy:
+For broad searches, do not judge the whole field from only the first search-result page. Also do not browse every page one by one. The default is a time-bounded layered sampling strategy:
 
-1. **Priority-source pass:** search the user-priority sites first, especially gooood, ArchDaily, ArchDaily CN, ArchCollege, Behance, Pinterest, and Alamy when relevant.
-2. **Early-result pass:** review a small number of top results for high-relevance, high-source-confidence projects.
-3. **Middle-band pass:** sample results from later pages or alternate site queries to catch good projects that are not ranked first.
-4. **Difference pass:** search with strategy words, scale words, material words, operation words, or local-language terms to find cases with different reference value.
-5. **Stop condition:** stop expanding when the candidate pool has enough diversity, not when every possible result has been read.
+1. **Priority-source pass:** search 2-4 user-priority or high-trust sources first, especially gooood, ArchDaily, ArchDaily CN, ArchCollege, Behance, Pinterest, and Alamy when relevant.
+2. **Early-result pass:** review titles, snippets, thumbnails, and source type before opening pages.
+3. **Shortlist pass:** open only the candidates that appear most relevant and source-reliable, aiming for about 1.5x the final requested output count.
+4. **Difference pass:** use one alternate strategy/material/scale keyword if results are repetitive.
+5. **Final verification pass:** verify selected cases plus 1-2 backups; do not fully verify every rough candidate.
+6. **Stop condition:** stop expanding when the candidate pool is good enough and diverse enough, not when every possible result has been read.
 
-Do not use a mechanical "first five pages only" rule. For a large result set, sample several result bands and several keyword angles. For example, a broad "coffee shop" search may inspect a few top professional-media results, a few later-page results, and several targeted queries such as "small coffee kiosk", "community cafe renovation", "bakery cafe interior", or local-language equivalents.
+Do not use a mechanical "first five pages only" rule. For a large result set, use targeted keyword angles instead of reading many pages. For example, a broad "coffee shop" search may inspect several top professional-media results and one targeted query such as "small coffee kiosk", "community cafe renovation", "bakery cafe interior", or local-language equivalents.
 
-Recommended candidate scale:
+Default candidate scale:
 
 | Output mode | Rough candidate pool | Serious candidates to inspect | Final selected output |
 |---|---:|---:|---:|
-| Deep project search | 18-30 | 10-16 | 4-6, unless user asks otherwise |
-| Medium project search | 12-20 | 6-10 | follow requested/default count |
-| Shallow project search | 8-12 | 3-8 | follow requested/default count |
-| Visual search cards | 8-14 visual clues | 3-8 | 3-6 cards, unless user asks otherwise |
+| Deep project search | 10-16 | 6-9 | 3-5, unless user asks otherwise |
+| Medium project search | 7-12 | 4-6 | follow requested/default count |
+| Shallow project search | 5-8 | 3-6 | follow requested/default count |
+| Visual search cards | 5-8 visual clues | 3-5 | 3-4 cards, unless user asks otherwise |
+
+Extended candidate scale is allowed only when the user asks for a fuller search, the first pass is too weak, or a client-facing deep report needs more certainty:
+
+| Output mode | Extended rough pool | Extended serious inspection |
+|---|---:|---:|
+| Deep project search | up to 18-30 | up to 10-16 |
+| Medium project search | up to 12-20 | up to 6-10 |
+| Shallow project search | up to 8-12 | 3-8 |
+| Visual search cards | up to 8-14 | 3-8 |
 
 Use source reliability, relevance, transferability, and difference between cases to reduce the pool. Do not fully summarize every rough candidate. Keep deeper reading for serious candidates and final selected cases.
+
+Default time targets:
+
+- Visual or shallow first pass: about 3-5 minutes before rendering.
+- Medium first pass: about 5-7 minutes before rendering.
+- Deep first pass: about 7-10 minutes before rendering.
+
+If research is likely to exceed the target, pause and offer the user a choice: output a good first pass now, or keep expanding the search.
 
 ## Keyword Rules
 
@@ -127,6 +145,8 @@ For shallow and medium outputs, keep URL verification lightweight to reduce cost
 - reject or replace links that return errors, wrong pages, login walls, unrelated titles, or obviously broken media pages;
 - write verified final links into `链接.txt` with project name and URL;
 - if a link cannot be verified quickly, downgrade the project or replace it with the next candidate rather than forcing it into the report.
+
+For deep outputs, cross-check selected links when useful, but do not chase every repost chain. If a reliable professional source already supports the case and facts are internally consistent, use it and mark the source level.
 
 ## Platform Handling
 

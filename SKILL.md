@@ -245,29 +245,58 @@ If the user says “不要问了/先快速找/我也没思路”, do not start s
 
 ## Efficient Search And Token Policy
 
-Insight-Space should find strong references quickly, not exhaust the entire internet. Do not only use the first few search results, but also do not browse dozens of pages linearly.
+Insight-Space should find strong references quickly, not exhaust the entire internet. Default runs use **Fast Quality Search**: enough verification to avoid weak or fake cases, but not an exhaustive survey. Only expand into exhaustive search when the user explicitly asks for “尽量全”, “系统梳理”, “多找一些”, “再扩展”, or when the first pass cannot find enough usable references.
 
-Use **layered sampling** for broad project searches:
+### Fast Quality Search
+
+Use a two-pass funnel:
+
+1. **Fast source pass:** run 2-4 targeted searches across user-priority and high-trust sources. Judge result titles, snippets, source type, and visible image relevance before opening pages.
+2. **Shortlist pass:** open only the most promising candidates, aiming for about 1.5x the final requested count.
+3. **Final verification pass:** verify only selected cases plus 1-2 backups. Do not fully read every rough candidate page.
+4. **Stop condition:** stop when selected cases are relevant, source-supported, and different enough from each other. Do not keep searching only to find a marginally better image or a slightly similar case.
+
+Use **layered sampling** only inside those limits:
 
 - start with user-priority sources and high-trust professional sources;
 - sample early search results for high-relevance matches;
-- sample several later result bands or alternate keyword/site queries to catch overlooked projects;
-- stop expanding when the candidate pool is diverse enough for the requested mode.
+- use one alternate keyword/site query if the first pass is repetitive;
+- use later-result sampling only when top results are weak, repetitive, or mostly visual clues;
+- stop expanding when the candidate pool is good enough for the requested mode.
 
 Recommended candidate scale:
 
-- Deep Mode: build 18-30 rough candidates, inspect 10-16 serious candidates, select 4-6 final cases unless the user asks otherwise.
-- Medium Mode: build 12-20 rough candidates, inspect 6-10 serious candidates, select the mode's requested/default count.
-- Shallow Mode: build 8-12 rough candidates, select the requested/default count.
-- Visual Search Mode: build 8-14 visual candidates, select 3-6 cards unless the user asks otherwise.
+- Deep Mode default: build 10-16 rough candidates, inspect 6-9 serious candidates, select 3-5 final cases unless the user asks otherwise.
+- Medium Mode default: build 7-12 rough candidates, inspect 4-6 serious candidates, select the mode's requested/default count.
+- Shallow Mode default: build 5-8 rough candidates, select the requested/default count.
+- Visual Search Mode default: build 5-8 visual candidates, select 3-4 cards unless the user asks otherwise.
+
+Extended candidate scale, only when requested or when the first pass is too weak:
+
+- Deep Mode extended: build up to 18-30 rough candidates and inspect 10-16 serious candidates.
+- Medium Mode extended: build up to 12-20 rough candidates and inspect 6-10 serious candidates.
+- Shallow Mode extended: build up to 8-12 rough candidates.
+- Visual Search Mode extended: build up to 8-14 visual candidates.
+
+Default time targets:
+
+- Visual or Shallow first pass: about 3-5 minutes before rendering.
+- Medium first pass: about 5-7 minutes before rendering.
+- Deep first pass: about 7-10 minutes before rendering.
+
+If a run is likely to exceed these targets, tell the user and offer a choice: output a good first pass now, or continue expanding the search.
 
 Token-saving rules:
 
 - verify final selected links; do not fully read every rough candidate page;
+- use title/snippet/source-level screening before opening pages;
+- avoid opening multiple reposts of the same project once a reliable page is found;
+- do not chase an official page for every B-level professional media case unless facts conflict or deep mode needs cross-checking;
 - write source links once in `链接.txt`, not repeatedly in every visual surface;
 - use the bundled renderers for Word/card layout after research data is prepared;
 - do not output process images, downloaded-assets folders, or candidate cards unless requested;
-- do not spend large effort finding a high-resolution image when a reliable project page already proves the case value.
+- do not spend large effort finding a high-resolution image when a reliable project page already proves the case value;
+- use one representative image from the selected project page first; try at most one alternate image/source before using screenshot or preview fallback.
 
 Image value rule: project relevance and reference value outrank image sharpness. If the project is strong but the image cannot be downloaded cleanly, use a screenshot/cropped preview from the verified source page before replacing the project. Mark low-resolution or preview-only images in the output notes only when it affects user understanding.
 

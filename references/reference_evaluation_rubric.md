@@ -48,12 +48,14 @@ Search more than the final output count.
 
 | Mode | Candidate Pool | Final Formal Case Output | Card / Supplement Use |
 |---|---:|---:|---|
-| Project search - deep | about 12-20 candidates | one deep report with 3-5 project items | no default card visual output; candidate cards only if requested |
-| Project search - medium | about 8-15 candidates | one medium report with 5-8 project items | no default card visual output; candidate cards only if requested |
-| Project search - shallow | about 5-10 candidates or visual directions | one shallow report with 8 project items by default | no default card visual output; candidate cards only if requested |
-| Visual search | image pool based on user need | no formal case count required | card visuals only, plus source links |
+| Project search - deep | default 10-16 candidates; extend only if needed | one deep report with 3-5 project items | no default card visual output; candidate cards only if requested |
+| Project search - medium | default 7-12 candidates | one medium report with 5-8 project items | no default card visual output; candidate cards only if requested |
+| Project search - shallow | default 5-8 candidates or visual directions | one shallow report with 8 project items by default | no default card visual output; candidate cards only if requested |
+| Visual search | default 5-8 visual clues | no formal case count required | card visuals only, plus source links |
 
 Selection is not “most visually similar”. Choose cases that provide different kinds of value.
+
+Do not fully score every rough candidate. Use quick rejection for obviously weak or repetitive material, then apply the full rubric only to serious candidates and final selected cases. The goal is high-quality selection, not a full audit trail for every search result.
 
 ## Hard Entry Conditions For Selected Formal Cases
 

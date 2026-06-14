@@ -27,6 +27,9 @@ Insight-Space v0.1 is acceptable when it consistently meets these checks.
 - It generates Chinese and English keywords.
 - It searches for real cases when project research is requested.
 - It uses layered sampling for broad searches instead of only reading the first few results or browsing every page linearly.
+- It defaults to Fast Quality Search: small high-trust candidate pools, shortlist-first page opening, and final-link verification only.
+- It expands into larger candidate pools only when the user asks for a fuller search or when the first pass cannot find enough usable references.
+- It does not spend time chasing high-resolution images when a representative project image or screenshot preview is enough.
 - It separates formal cases from visual clues.
 - It marks source levels A/B/C/D/X.
 - It does not fabricate project name, designer, location, year, or link.
@@ -99,6 +102,8 @@ The skill fails if it:
 - invents facts;
 - ignores source level;
 - treats visual clues as verified cases;
+- opens and deeply reads too many rough candidates before shortlisting;
+- spends excessive time finding better images when project value and a representative image are already sufficient;
 - recommends every case equally;
 - omits non-copy points;
 - omits risk when risk is central;
