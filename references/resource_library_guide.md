@@ -185,7 +185,7 @@ Think in capability, not platform reputation only.
 - professional media helps understand design intent and context;
 - Chinese media helps local implementation and commercial language;
 - portfolio platforms may be useful but need built/unbuilt caution;
-- Pinterest, Savee, Xiaohongshu, Instagram, and image search are visual clues unless traced;
+- Pinterest, Savee, Instagram, and image search are visual clues unless traced;
 - user photos help current project analysis, not external project identity.
 
 ## Good Reference Judgment Example

@@ -159,7 +159,7 @@ Medium case documents reduce depth but keep judgment:
 Downgrade or reject when:
 
 - only images exist and project facts cannot be traced;
-- source is Pinterest/Xiaohongshu/Instagram/image search with no traceable original;
+- source is Pinterest/Instagram/image search with no traceable original;
 - the project is only stylistically similar;
 - scale, budget, construction, or operation are seriously mismatched;
 - several cases repeat the same design move;

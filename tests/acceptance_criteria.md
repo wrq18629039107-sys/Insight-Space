@@ -17,6 +17,9 @@ Insight-Space v0.1 is acceptable when it consistently meets these checks.
 - It asks at most the necessary key questions inside the confirmation block.
 - When the user gives a loose one-condition request such as "随便搜几个看看", it recommends or infers the lightest suitable mode before heavy research and waits for confirmation.
 - It defaults loose project/case exploration to shallow mode, and loose picture/mood/object requests to visual search mode.
+- It recognizes Expert Mode as a fifth mode when the user asks for precision, 专项,单点做法,审美标杆,最好看的,低成本但高级,消防坡道,无障碍,风险避坑, or specific implementation/risk judgment.
+- Before Expert Mode search, it confirms the expert intent type: 审美标杆型,单点专项型,落地控制型,风险避坑型, or 综合专业型.
+- Before small-point Expert Mode search, it performs 突破口确认: restates the small point, offers 3-5 possible breakthrough points, recommends 1-2 first-round directions, and waits for confirmation or states a speed default.
 - Its first response feels like a design partner: it reflects the user's real design problem before naming the mode.
 - It suggests a first-round calibration size by default: 3 deep cases, 4 medium cases, 5 shallow directions/items, or 3-4 visual cards.
 - It tells the user they may directly specify the output quantity.
@@ -31,6 +34,11 @@ Insight-Space v0.1 is acceptable when it consistently meets these checks.
 - It expands into larger candidate pools only when the user asks for a fuller search or when the first pass cannot find enough usable references.
 - It does not spend time chasing high-resolution images when a representative project image or screenshot preview is enough.
 - It separates formal cases from visual clues.
+- In Expert Mode, it can use 专项参考,单点参考,视觉线索, and 现场线索 without treating them as verified formal projects.
+- In Expert Mode, Pinterest, Instagram, Alamy, image search, and similar platforms can be used as clue sources when appropriate, but not as verified project facts unless traced.
+- In flat graphic/brand Expert Mode, such as menu layout, poster layout, brand identity, visual identity, packaging system, or typography hierarchy, Behance is the only default search/source platform. Pinterest or other visual platforms are used only when the user explicitly asks or approves expansion beyond Behance.
+- In small-point Expert Mode, it expands literal object words into functional keywords and keeps 主突破点强相关,相邻专项参考,视觉线索/现场线索, and 淘汰 separate.
+- It opens and verifies every final user-facing URL before writing it into `链接.txt`; mismatched, empty-title, broken, or generic links are removed or marked pending.
 - It marks source levels A/B/C/D/X.
 - It does not fabricate project name, designer, location, year, or link.
 - It explains limitations when verified cases are scarce.
@@ -60,6 +68,10 @@ Insight-Space v0.1 is acceptable when it consistently meets these checks.
 - Shallow reports keep one project per page by default and keep the project block visually centered as much as the template allows.
 - Shallow delivery contains only the Word report and `链接.txt` by default; no `images`, source-image, or process-material folder is output unless explicitly requested.
 - Visual search creates card visuals and source-link text file.
+- Expert Mode creates `专家模式_[user topic].docx`, `链接.txt`, and default `更多单点可能性` inspiration cards unless the user changes the output.
+- Expert Mode output matches the confirmed intent: aesthetic benchmark outputs focus on why it looks good and how to translate it; single-point outputs treat the specific element as the main object; implementation/risk outputs include borrowable points, non-copy notes, and risk reminders.
+- Single-point Expert Mode Word output uses `assets/templates/expert_mode_template.docx` exactly, with `专项命题`, `核心判断`, `1. 选用逻辑`, `2. 与本次重点的关系`, `3. 汇报表达口径`, `4. 适用场景判断`, `5. 照搬风险底线`, and `6. 原网址 / 延伸查看`.
+- Expert Mode normal runs should be time-bounded around 15 minutes after confirmation; complex runs can stretch to about 15-18 minutes only with explanation, not silent 20-30 minute exhaustive browsing.
 - Research documents and card visuals remain separate output systems.
 - `NO1`, `NO2`, and `NO3` are sequence labels, not value ranking.
 - No overview document is created by default.
@@ -108,4 +120,9 @@ The skill fails if it:
 - omits non-copy points;
 - omits risk when risk is central;
 - begins search or file generation before the user confirms the proposed mode, quantity, direction, and output;
+- treats Expert Mode as only cost/construction/maintenance analysis when the user is actually asking for aesthetic benchmark or single-point inspiration;
+- calls a single-point expert target "局部参考" when it is the main user need;
+- starts searching a small-point expert request without confirming the main breakthrough point;
+- mixes several small-point directions into one result pool without telling the user what the main direction is;
+- writes unverified or mismatched links into `链接.txt`;
 - produces the wrong output mode for the user request.
